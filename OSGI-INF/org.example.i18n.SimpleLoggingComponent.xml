@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" deactivate="deactivate" name="org.example.i18n.SimpleLoggingComponent">
    <reference bind="bindLogger" interface="org.example.i18n.SimpleLogService" name="Logger" unbind="unbindLogger"/>
+   <reference bind="bindMessageProvider" interface="org.example.i18n.messages.MessageProvider" name="MessageProvider" unbind="unbindMessageProvider"/>
    <implementation class="org.example.i18n.SimpleLoggingComponent"/>
 </scr:component>

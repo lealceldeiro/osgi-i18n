@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" name="org.example.i18n.messages.MessagesProviderImpl">
+   <service>
+      <provide interface="org.example.i18n.messages.MessageProvider"/>
+   </service>
+   <reference bind="bindBundleLocalization" interface="org.eclipse.osgi.service.localization.BundleLocalization" name="BundleLocalization" unbind="unbindBundleLocalization"/>
+   <reference bind="bindLocaleProvider" cardinality="0..1" interface="org.eclipse.osgi.service.localization.LocaleProvider" name="LocaleProvider" policy="dynamic" unbind="unbindLocaleProvider"/>
+   <implementation class="org.example.i18n.messages.MessagesProviderImpl"/>
+</scr:component>

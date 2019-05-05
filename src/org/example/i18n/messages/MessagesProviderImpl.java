@@ -30,15 +30,19 @@ public class MessagesProviderImpl implements MessageProvider {
 	@Reference(cardinality = ReferenceCardinality.OPTIONAL, policy = ReferencePolicy.DYNAMIC)
 	public void bindLocaleProvider(LocaleProvider localeProvider) {
 		this.localeProvider = localeProvider;
+		setResourceBundle();
 	}
 	
 	public void unbindLocaleProvider(LocaleProvider localeProvider) {
 		this.localeProvider = null;
 	}
-	
 
 	@Activate
 	public void activate() {
+		setResourceBundle();
+	}
+
+	private void setResourceBundle() {
 		resourceBundle = bundleLocalization.getLocalization(FrameworkUtil.getBundle(getClass()), getLocale());
 	}
 
